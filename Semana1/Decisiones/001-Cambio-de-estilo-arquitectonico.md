@@ -1,5 +1,5 @@
 ---
-status: "waiting confirmation"
+status: "accepted"
 date: 2025-10-25
 decision-makers: ["Jaime Torroba Martínez, Laura Pineda Ballesteros"]
 ---
