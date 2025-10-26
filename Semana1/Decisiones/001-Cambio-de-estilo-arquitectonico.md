@@ -1,8 +1,15 @@
 ---
 status: "accepted"
+accepted-date: 2025-10-25
 date: 2025-10-25
-decision-makers: ["Jaime Torroba Martínez, Laura Pineda Ballesteros"]
+accepted-by: 
+  - Jaime José Portillo Pérez
+  - Isidoro Pérez Rivera
+decision-makers:
+  - Jaime Torroba Martínez
+  - Laura Pineda Ballesteros
 ---
+
 
 # Cambio del estilo arquitectónico base
 
