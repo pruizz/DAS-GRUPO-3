@@ -1,17 +1,14 @@
 ---
 status: "waiting confirmation"
-date: 2025-10-25
+date: 2025-10-28
 decision-makers: ["Jaime Torroba Martínez, Laura Pineda Ballesteros"]
 ---
 
-# Cambio del estilo arquitectónico base
+# Conexión a los microservicios del servidor
 
 ## Context and Problem Statement
 
-La compañía de productos alimenticios requiere una plataforma de gestión de los procesos de compra que permita a clientes, repartidores y administradores interactuar con el sistema de forma remota.  
-El sistema incluye distintas áreas funcionales: gestión de clientes, pedidos, reparto y rutas, incidencias, estadísticas y pagos.  
-
-Se necesita redefinir el estilo arquitectónico base del sistema, de uno monolítico a otro que permita separar la capa de interacción con el usuario de la lógica de negocio.
+.
 
 ## Decision Drivers
 
