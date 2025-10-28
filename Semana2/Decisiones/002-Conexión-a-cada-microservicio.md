@@ -8,57 +8,41 @@ decision-makers: ["Jaime Torroba Martínez, Laura Pineda Ballesteros"]
 
 ## Context and Problem Statement
 
-.
+Se requiere definir cómo se conectará el cliente a los distintos microservicios que componen el sistema backend, asegurando una comunicación eficiente y segura.
 
 ## Decision Drivers
 
-* **RF001 – Cambio a arquitectura más escalable y modular por microservicios** el sistema debe abandonar la arquitectura monolítica actual y adoptar una más escalable y modular. 
-* **RF012 / RF027 – Integración con servicios externos:** el sistema debe conectarse con Stripe y servicios de tráfico externos.  
 * **RF002 - Conexión a los servicios por HTTP/REST:** El cliente debe poder conectarse a los distintos servicios de la aplicación mediante el protocolo HTTP/REST al ser este uno de los más estandarizados y utilizados.
 * **RF003 - Soporte de clientes desde distintas interfaces:** el sistema debe permitir separar la capa de interacción con el usuario de la lógica del negocio.  
+* **RF025 / RF005 / RF006 / RF026 – Gestión de usuarios, roles y autenticación.**
 
 ## Considered Options
 
-* Opción 1 – Arquitectura Cliente-Servidor
-* Opción 2 – Arquitectura por eventos (Event-Driven Architecture)
-* Opción 3 – Arquitectura REST
+* Opción 1 – Patrón de diseño Proxy
+* Opción 2 – API REST a cada microservicio
 
 ## Decision Outcome
 
-**Chosen option:** “Arquitectura Cliente-Servidor”,  
-**because** separa claramente la capa de presentación de la lógica del negocio, facilitando el desarrollo independiente de la interfaz de usuario y de los servicios de backend, aportando una mayor escalabilidad y modularidad; y permite conexiones mediante HTTP/REST.  
+**Chosen option:** “Patrón de diseño Proxy”,  
+**because** permite abstraer la complejidad de la comunicación con múltiples microservicios, proporcionando una interfaz unificada para el cliente. 
 
 ### Consequences
 
-* **Good, because** promueve una clara separación de responsabilidades entre cliente y servidor.  
-* **Good, because** facilita el trabajo en paralelo entre equipos de frontend y backend.  
-* **Good, because** es fácilmente extensible hacia arquitecturas internas más especializadas (microservicios o EDA).  
-* **Bad, because** la comunicación entre cliente y servidor puede convertirse en un cuello de botella si no se gestiona correctamente.  
-* **Bad, because** no resuelve por sí sola la distribución interna del servidor, que deberá diseñarse aparte.  
-
+* **Good, because** simplifica la interacción del cliente con el backend al centralizar las llamadas a los microservicios.
+* **Good, because** facilita la implementación de llamadas a los microservicios, ya que el proxy puede manejar detalles como la construcción de URLs.
+* **Bad, because** solo enruta tráfico HTTP.
+* **Bad, because** no añade funcionalidades extra como la autenticación.
 
 
 ## Pros and Cons of the Options
 
-### Opción 1 – Arquitectura Cliente-Servidor (elegida)
+### Opción 1 – Patrón de diseño Proxy (elegida)
+* **Good, because** simplifica la comunicación del cliente con múltiples microservicios.  
+* **Good, because** centraliza la gestión de las llamadas a los microservicios.
+* **Bad, because** solo construye URLs de llamadas HTTP.
+* **Bad, because** no añade funcionalidades extra como la autenticación.
 
-* **Good, because** separa presentación y lógica de negocio, facilitando el mantenimiento y la evolución.  
-* **Good, because** es compatible con diversos clientes (web, móvil).  
-* **Good, because** permite desarrollar y desplegar las capas de forma independiente.  
-* **Neutral, because** requiere definir claramente la interfaz de comunicación (API REST).  
-* **Bad, because** la escalabilidad depende de cómo se diseñe el lado servidor.  
-
-### Opción 2 – Arquitectura por eventos (Event-Driven)
-
-* **Good, because** permite alta reactividad y comunicación asíncrona.  
-* **Good, because** desacopla componentes y facilita la escalabilidad.  
-* **Bad, because** es más compleja de implementar y monitorizar.  
-* **Bad, because** no se ajusta al objetivo inicial de separar cliente y servidor.  
-
-### Opción 3 – Arquitectura REST
-
-* **Good, because** añade restricciones útiles: uso de HTTP/REST imperativo.  
-* **Good, because** mejora la interoperabilidad y facilita integraciones externas.  
-* **Bad, because** porque es un estilo derivado de Cliente-Servidor y puede implicar más esfuerzo inicial en el diseño de recursos.  
-
-
+### Opción 2 – API REST a cada microservicio
+* **Good, because** permite una comunicación directa con cada microservicio.
+* **Bad, because** aumenta la carga en el cliente al tener que conectar individualmente con cada microservicio.
+* **Bad, because** dificulta la implementación.
