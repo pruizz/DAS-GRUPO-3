@@ -4,7 +4,7 @@ date: 2025-11-5
 decision-makers: ["Jaime Torroba Martínez, Laura Pineda Ballesteros"]
 ---
 
-# Selección de rutas de los camiones
+# Módulo de estadísticas
 
 ## Context and Problem Statement
 
