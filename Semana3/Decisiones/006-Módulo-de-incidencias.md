@@ -1,5 +1,5 @@
 ---
-status: "accepted"
+status: "rejected"
 date: 2025-11-8
 decision-makers: ["Jaime Torroba Martínez, Laura Pineda Ballesteros"]
 ---

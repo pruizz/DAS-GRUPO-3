@@ -14,7 +14,7 @@ Se requiere definir cómo se conectará el cliente a los distintos microservicio
 
 * **RF002 - Conexión a los servicios por HTTP/REST:** El cliente debe poder conectarse a los distintos servicios de la aplicación mediante el protocolo HTTP/REST al ser este uno de los más estandarizados y utilizados.
 * **RF003 - Soporte de clientes desde distintas interfaces:** el sistema debe permitir separar la capa de interacción con el usuario de la lógica del negocio.  
-* **RF025 / RF005 / RF006 / RF026 – Gestión de usuarios, roles y autenticación.**
+
 
 ## Considered Options
 
