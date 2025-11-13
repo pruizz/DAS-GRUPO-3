@@ -21,7 +21,7 @@ El sistema debe generar estadísticas de manera dinámica cuando el cliente llam
 ## Considered Options
 
 * Opción 1 – Patrón de diseño Publisher-Subscriber
-* Opción 2 – Clase StatisticsManager que toma los datos cuando es invocada (elegida)
+* Opción 2 – Servicio de estadísticas con clase StatisticsManager que toma los datos cuando es invocada (elegida)
 ## Decision Outcome
 
 **Chosen option:** “Clase StatisticsManager que toma los datos cuando es invocada”,  
@@ -31,7 +31,7 @@ El sistema debe generar estadísticas de manera dinámica cuando el cliente llam
 
 * **Good, because** las estadísticas se crearán con los últimos datos actualizados.
 * **Good, because** proporciona un método de consulta de estadísticas de clientes, pedidos y camiones en tiempo real.
-+ **Good, because** las estadíticas se generan en el momento que el usuario las necesita.
+* **Good, because** las estadíticas se generan en el momento que el usuario las necesita.
 
 
 ## Pros and Cons of the Options
@@ -42,7 +42,7 @@ El sistema debe generar estadísticas de manera dinámica cuando el cliente llam
 * **Bad, because** puede dar lugar a que el cliente vea estadísticas aún no actualizadas en caso de retrasos o problemas en la notificación a los subscriptores.
 
 
-### Opción 2 – Clase StatisticsManager que toma los datos cuando es invocada  (elegida)
+### Opción 2 – Servicio de estadísticas con clase StatisticsManager que toma los datos cuando es invocada  (elegida)
 * **Good, because** permite que las estadísticas se creen con los datos más recientes.
 * **Good, because** proporciona los métodos de consulta necesarios para las estadísticas de clientes, pedidos y camiones en tiempo real.
 * **Good, because** el control de cuándo se generan las estadísticas recae en el usuario, garantizando que se obtienen justo cuando se necesitan.
